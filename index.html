@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EXEMPLIFI - TEST</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            .navbar {
+                position: sticky;
+                top: 0
+            }
+    
+            .navbar-dark .navbar-nav a.nav-link {
+                color: #ffffff;
+                font-size: 0.6em;
+            }
+    
+            .dropdown-menu {
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+                border: none;
+                border-radius: 0;
+                padding: 0.7em;
+                
+            }
+    
+            .dropdown-toggle::after {
+                display: none;
+            }
+    
+            .w-10 {
+                width: 30px
+            }
+    
+            @media only screen and (min-width: 992px) {
+                .dropdown:hover .dropdown-menu {
+                    display: flex;
+                }
+    
+                .dropdown-menu.show {
+                    display: flex;
+                }
+            }
+    
+            @media only screen and (max-width: 992px) {
+                .dropdown-menu.show {
+                    flex-wrap: wrap;
+                    max-height: 350px;
+                    overflow-y: scroll;
+                }
+                .dropdown-toggle::after {
+                    display: block;
+                    margin-left: 13em;
+                    font-size:20px
+                }
+            }
+    
+            .nav-link {
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                font-size: 5px;
+                font-weight: 700;
+    
+    
+            }
+    
+            .nav-link img {
+                display: block;
+    
+            }
+    
+            .nav-item {
+                padding: 0 15px;
+    
+    
+            }
+    
+            .nav-item:after {
+                position: absolute;
+                content: "";
+                height: 35px;
+                width: 0.1rem;
+                background-color: #ccc;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                right: 0px;
+    
+            }
+    
+            .nav-item:nth-last-child(1)::after {
+                display: none
+            }
+    
+            /* adds some margin below the link sets  */
+            .navbar .dropdown-menu div[class*="col"] {
+                margin-bottom: 1rem;
+            }
+    
+            .navbar .dropdown-menu {
+                border: none;
+                text-align: center;
+            }
+    
+            /* breakpoint and up - mega dropdown styles */
+            @media screen and (min-width: 992px) {
+    
+                /* remove the padding from the navbar so the dropdown hover state is not broken */
+                .navbar {
+                    padding-top: 0px;
+                    padding-bottom: 0px;
+                }
+    
+                /* remove the padding from the nav-item and add some margin to give some breathing room on hovers */
+                .navbar .nav-item {
+                    padding: .5rem .5rem;
+                    margin: 0 .25rem;
+                }
+    
+                /* makes the dropdown full width  */
+                .navbar .dropdown {
+                    position: static;
+                }
+                .dropdown-menu{
+                    top:100%
+                }
+                .navbar .mega {
+                    width: 90%;
+                    left: 5%;
+                    right: 0;
+                    top: 100%;
+                    display: block;
+                    visibility: hidden;
+                    opacity: 0;
+                    transition: visibility 0s, opacity 0.3s linear;
+    
+                }
+    
+    
+    
+    
+                /* shows the dropdown menu on hover */
+                .navbar .dropdown:hover .dropdown-menu,
+                .navbar .dropdown .dropdown-menu:hover {
+                    display: block;
+                    visibility: visible;
+                    opacity: 1;
+                    transition: visibility 0s, opacity 0.3s linear;
+                }
+    
+                .navbar .dropdown-menu {
+                    border: 1px solid rgba(0, 0, 0, .15);
+                    background-color: #fff;
+                }
+    
+            }
+    
+            .mega-row a {
+                text-decoration: none;
+            }
+    
+            @media screen and (max-width: 470px) {
+                .nav-link {
+                    flex-direction: row;
+    
+    
+                }
+    
+                .nav-link img {
+                    margin-right: 10px
+                }
+                .nav-item{
+                    border-bottom:1px solid #ccc
+                }
+            }
+    
+    
+            .social i {
+                color: #151026;
+                padding: 0 10px
+            }
+    
+            .search {
+                text-align: center;
+            }
+    
+            .search i {
+                margin-top: 10px;
+                background-color: #ea8d13;
+                padding: 10px;
+                border-radius: 50%;
+                color: #fff;
+            }
+    
+            .w-35 {
+                width: 100px;
+            }
+            .menu li a {
+                text-decoration: none;
+            }
+            
+        </style>
+</head>
+
+<body class="bg-warning">
+
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #516BEB;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="./assets/products/Reynolds_pens_logo.png" alt="" class="w-35">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown ">
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+
+                            <img src="./assets/media/product.svg" class="w-10">
+                            PRODUCTS
+
+                        </a>
+                        <div class="dropdown-menu mega " aria-labelledby="navbarDropdown">
+                            <div class="row mega-row">
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <img src="./assets/products/1.png">
+                                        <h3>Vicks 3 in 1 </h3>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <img src="./assets/products/1.png">
+                                        <h3>Vicks 3 in 1 </h3>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <img src="./assets/products/1.png">
+                                        <h3>Vicks 3 in 1 </h3>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <img src="./assets/products/1.png">
+                                        <h3>Vicks 3 in 1 </h3>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <img src="./assets/products/1.png">
+                                        <h3>Vicks 3 in 1 </h3>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <img src="./assets/products/1.png">
+                                        <h3>Vicks 3 in 1 </h3>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <img src="./assets/products/1.png">
+                                        <h3>Vicks 3 in 1 </h3>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </a>
+                                </div>
+                                <div class="col-md-3">
+                                    <a href="#">
+                                        <img src="./assets/products/1.png">
+                                        <h3>Vicks 3 in 1 </h3>
+                                        <p>Lorem ipsum dolor sit amet.</p>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">
+
+
+                            <img src="./assets/media/recipes.svg" class="w-10">
+                            RECIPES
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+
+                            <img src="./assets/media/tips.svg" class="w-10">
+                            TIPS &  HOW-TOS
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+
+                            <img src="./assets/media/holidays.svg" class="w-10">
+                            HOLIDAYS &  ENTERTAINING
+
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            
+                            <ul class="list-unstyled menu">
+                                <li><a href="#">trip1</a></li>
+                                <li><a href="#">trip1</a></li>
+                                <li><a href="#">trip1</a></li>
+                                <li><a href="#">trip1</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        
+                        <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown">
+
+                            <img src="./assets/media/book.svg" class="w-10">
+                            OUR STORY
+
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            
+                            <ul class="list-unstyled menu">
+                                <li><a href="#">book1</a></li>
+                                <li><a href="#">book1</a></li>
+                                <li><a href="#">book1</a></li>
+                                <li><a href="#">book1</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <div class="d-flex justify-content-center flex-column text-center ">
+                    <div class="social d-flex">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div class="search">
+                        <i class="fas fa-search"></i>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Perspiciatis error iusto quo non. In omnis quisquam
+            perferendis earum provident ipsa reprehenderit. Consequuntur molestiae sed aliquam odio expedita quae
+            pariatur quaerat provident deserunt? Animi assumenda, sunt error quos pariatur illum rem et voluptatem
+            ratione, quisquam at. Ducimus perferendis ea a cumque eveniet quas iusto nulla provident? Distinctio eum
+            cumque aut, itaque reiciendis tempore facere alias ipsum quod eligendi sit quia debitis quam obcaecati
+            laudantium, corrupti non accusantium exercitationem rerum ea nemo aliquam. Ut sit iusto porro ratione labore
+            quis tempore culpa. Doloremque, illo recusandae eius vero possimus, sequi debitis amet voluptates assumenda
+            molestiae sapiente officiis quod cum vel odio quia soluta distinctio repudiandae. Aspernatur officia quod
+            commodi at nisi a maiores deserunt, doloremque illo hic nostrum et optio molestiae, dolorem repellendus
+            ipsam inventore beatae excepturi quae illum voluptatem. Fuga, voluptates eligendi adipisci itaque maiores
+            blanditiis harum assumenda incidunt nemo nesciunt distinctio est quisquam laborum minus ducimus animi
+            suscipit culpa optio aperiam recusandae, eius nobis autem? Tempore corporis, similique, quidem nulla modi
+            perspiciatis qui pariatur voluptates minima eum, omnis quo repellat quae dicta sapiente adipisci doloribus
+            incidunt neque commodi exercitationem? Aspernatur eum sequi officiis. Quibusdam, quidem quod sequi provident
+            porro iste, suscipit repellendus culpa pariatur expedita, animi voluptatum maiores assumenda esse excepturi
+            hic earum velit voluptates similique? Tempora porro in ipsa eius ab vero, omnis vel eaque voluptatibus eum
+            aliquid corrupti est natus non dolorem, voluptatem eligendi facilis laborum! Fugiat exercitationem ipsa
+            eligendi unde, aperiam delectus adipisci provident perspiciatis numquam dolore autem reiciendis nesciunt,
+            optio, itaque fuga. Aspernatur et ab corrupti. Numquam deleniti provident aspernatur veniam optio, ut atque
+            iusto! Rem ab incidunt nostrum modi voluptatem! Inventore consectetur natus autem debitis velit odit
+            adipisci expedita recusandae aperiam! Cupiditate cum blanditiis ducimus pariatur iste! Distinctio minima
+            sequi labore saepe suscipit deserunt in similique ab molestiae iusto quisquam, dolor aperiam aut alias
+            provident ea sed nesciunt atque nobis pariatur consectetur! Voluptates, perspiciatis reiciendis. Perferendis
+            accusamus architecto id asperiores voluptas facilis harum laudantium perspiciatis, quibusdam impedit error
+            dolor, ab assumenda repudiandae eius? Eveniet, rem! Sapiente recusandae perspiciatis dolores ducimus quaerat
+            ipsum velit! Atque sed totam, aut adipisci, assumenda voluptate unde similique consectetur enim maxime
+            voluptatem harum. Nisi iste hic id ipsum dolore consequuntur voluptatibus accusantium, minima quis
+            necessitatibus ipsa cupiditate animi deserunt cum possimus vero recusandae consectetur iure quisquam
+            reiciendis nostrum magnam. Corporis placeat quam animi fugit temporibus! Molestiae et sit accusantium rem
+            exercitationem ad itaque omnis inventore fuga voluptas quos aliquam labore eligendi nam vel, commodi, minima
+            quibusdam, possimus nemo. Molestiae quidem cumque explicabo cum. Libero veniam fuga tempora ullam magnam est
+            adipisci tempore delectus, dolore aut? Inventore tenetur, qui maxime molestiae necessitatibus dolore ex
+            animi assumenda temporibus. Iusto neque in repellat nisi maxime velit temporibus autem est vel harum,
+            tempora, pariatur at, mollitia praesentium? Neque sed voluptas recusandae sint possimus tempora cum
+            assumenda dolorum delectus pariatur asperiores perferendis dolor repellat nulla aliquam maiores ea labore
+            praesentium autem quisquam porro blanditiis, cupiditate alias. Modi laborum voluptate unde! Sunt ullam vero
+            veritatis dolore iusto incidunt dolor? Neque culpa, deleniti hic autem voluptas, quasi placeat optio ad
+            itaque quibusdam ullam aperiam nostrum porro officia. Ex dignissimos perferendis eum quae quis deleniti aut
+            dolor, fuga, maxime culpa corporis aspernatur officiis tempora quod ipsum, delectus temporibus? Odio,
+            architecto molestias maiores quos sapiente expedita. Provident exercitationem iure, at ex nemo aliquid quo
+            odio sed deserunt et accusantium sint corporis, fugiat aliquam incidunt cupiditate eum consequuntur debitis
+            rerum possimus voluptate velit voluptatibus commodi. Sed enim, aliquam ullam vel temporibus maiores! Ullam
+            dolorem recusandae autem sunt, sed fuga. Numquam esse nesciunt maxime omnis explicabo, dolor consequatur
+            aspernatur velit magnam dolores rem possimus ad animi sunt ipsum delectus, incidunt voluptatum veniam
+            repudiandae est sed, atque eligendi. Distinctio voluptatem iste consectetur neque mollitia omnis voluptate
+            quis consequatur eos voluptatum. Exercitationem eveniet pariatur, reiciendis distinctio laborum omnis
+            consequatur fugiat quidem explicabo accusamus. Odio, voluptatibus. Consectetur voluptatem, nisi porro
+            aspernatur numquam eaque, quis magnam facere consequuntur vitae eligendi quisquam quae vel, sequi itaque
+            recusandae. Amet qui dolorem beatae, similique alias culpa, dolores labore nihil corporis laboriosam porro,
+            unde facilis. Fugit harum, minus exercitationem iusto incidunt eligendi modi. Voluptate, tempore? Hic vero,
+            iste cumque quaerat consequuntur molestiae blanditiis consequatur dolor at, optio quo, in recusandae?
+            Dolorem nobis facilis et repellat itaque? Quae, quibusdam. Officia, amet autem incidunt nemo temporibus quod
+            ullam eum adipisci minus id placeat deleniti molestiae laborum nulla quo laboriosam deserunt harum labore
+            dolor. Consectetur illo nisi nobis nemo maxime reiciendis blanditiis omnis labore at fugit soluta iste illum
+            saepe, quia quos accusamus beatae, doloribus, atque ex sint debitis quas. Ipsa, repellat a corporis vel sed
+            itaque doloribus voluptates nulla? Aspernatur repellendus illo voluptates asperiores magnam, minima nobis
+            fugiat! Quos optio veritatis tempore ea corporis quo, facilis, ab assumenda natus illum officia. Ipsum
+            neque, labore obcaecati laudantium, voluptate, inventore aspernatur possimus quo nulla commodi alias vitae
+            est a distinctio. Omnis quod eveniet modi, quia sed impedit dolores adipisci fuga amet repudiandae ipsum
+            aperiam deleniti, est quam quidem facilis molestiae quibusdam blanditiis consequuntur possimus debitis
+            fugiat. Saepe sint expedita reiciendis modi ex, quia mollitia odio dolor, molestias enim quisquam laudantium
+            temporibus illo dolorum doloremque deleniti, fugiat inventore provident quo! Fugiat consequuntur, labore
+            laboriosam fuga delectus dignissimos voluptatem architecto nam, id exercitationem temporibus error, dolorum
+            sit. Debitis fugiat possimus facilis sequi cupiditate quis pariatur nisi doloremque modi non suscipit optio
+            veritatis aliquam ipsa, obcaecati amet corporis dolorem magni officiis praesentium omnis consequuntur hic.
+            Obcaecati ex officia odit est eveniet voluptate, eum molestiae enim necessitatibus facilis magnam sint
+            nostrum nihil nobis velit fugit, rerum nisi, maxime unde? Eos modi ea, repellendus explicabo dicta amet
+            magni pariatur et sapiente exercitationem hic aliquam sit deleniti nulla ipsum quod? Beatae omnis,
+            necessitatibus magnam fuga, reiciendis eaque cupiditate veniam suscipit quisquam rerum earum explicabo illo
+            tempora, nobis quos est ratione sunt ipsam iure ad accusamus consequatur amet pariatur id! Autem aliquid
+            eaque debitis suscipit molestiae itaque, pariatur atque quod labore dicta at voluptatibus alias quidem quam
+            impedit dolorem quaerat optio illum, voluptatem similique obcaecati iure praesentium. Quidem nisi at quasi.
+            Saepe ducimus doloribus vitae, molestias quas error quae repellendus sint quaerat a recusandae eum, quia
+            veritatis assumenda rerum rem exercitationem perspiciatis debitis ullam libero? Dignissimos a necessitatibus
+            nam explicabo velit aperiam officiis animi, excepturi placeat vel, repellendus esse magni exercitationem
+            doloremque. Aliquid, ducimus porro fugiat reiciendis tempora ex debitis quibusdam incidunt amet praesentium?
+            Eaque mollitia ipsum, autem natus distinctio officiis atque aspernatur assumenda voluptate error?
+            Consequuntur et odit sed voluptatum! Laborum totam expedita nulla maiores accusantium amet molestias
+            repudiandae maxime, tempore quaerat praesentium consectetur eligendi magnam, vero iure itaque corporis id ab
+            voluptatum distinctio doloribus quo quisquam mollitia! Tempore quas pariatur nesciunt eaque, nihil quis
+            eligendi id libero, veritatis culpa quam consectetur aperiam reprehenderit maxime quae omnis dicta, amet
+            enim. Exercitationem fugit error minus quaerat expedita dolorem. Est possimus adipisci ipsum soluta id autem
+            impedit obcaecati, explicabo et dolores, maiores fugiat aut omnis molestiae fugit veritatis qui voluptate
+            voluptatum. Officiis eius, maiores aut facilis voluptates quia commodi similique, dicta obcaecati aspernatur
+            labore vel amet harum, ipsa iste ratione neque nostrum? Neque error at officia nihil accusamus, dolorum
+            tempore laborum nulla aut deleniti hic doloremque maxime pariatur perferendis, fugiat quia, asperiores
+            similique. Laudantium reprehenderit nisi aliquam esse recusandae saepe quasi doloremque magni ut. Sapiente
+            quam nemo aspernatur ipsa omnis quisquam sit minus earum iure, magni porro numquam tempora illo impedit
+            aperiam quibusdam quaerat minima officiis temporibus harum quasi? Sunt, non qui natus numquam corrupti
+            praesentium magnam impedit facilis, atque ipsam iste sed accusantium consequuntur itaque minus recusandae
+            cum, veritatis aspernatur! Officiis autem sunt labore, quaerat deleniti voluptatem nobis perferendis
+            delectus minus, praesentium est temporibus rem, alias magnam. Voluptate illum, illo perspiciatis quae magnam
+            esse sit quibusdam amet, sequi velit, sint rem alias consequatur sed iure libero voluptatem ipsa repudiandae
+            aliquid? Fuga ipsa dolorum aliquam alias. Aut esse aspernatur accusantium nostrum, provident sit eius
+            possimus molestiae, consectetur quam obcaecati, cum consequatur! Fuga numquam reiciendis tenetur sequi hic,
+            eius adipisci possimus, eveniet illo aperiam vel animi commodi nemo at blanditiis? Nihil unde asperiores
+            optio ipsum debitis, quam numquam deserunt labore! Dicta cupiditate ipsa amet deserunt eos repellat. Nulla
+            sapiente quod mollitia corporis quasi suscipit aperiam sed, sit voluptates reiciendis, tempora harum numquam
+            nesciunt assumenda similique! Odio molestiae aliquam velit ratione aspernatur quae doloremque odit commodi a
+            labore id minima sapiente aut illo, voluptas quod. Modi sunt iste distinctio quas error minus fugit deserunt
+            ea eligendi adipisci repudiandae quia voluptatem vel rerum voluptatibus, itaque quam voluptate provident ab?
+            Quisquam, distinctio unde, minus at omnis necessitatibus perferendis neque facilis libero, quidem
+            consectetur odio consequuntur consequatur! Praesentium ducimus dolorem in fugit velit, odio cumque, tenetur
+            labore dignissimos consectetur nihil voluptatum maxime quaerat minima accusantium fuga dolor. Nesciunt
+            beatae facilis dolores exercitationem, cumque veniam, ipsam unde error optio, vitae iure ipsum dolorem? Aut
+            fugiat quia eveniet perspiciatis voluptate, exercitationem veniam itaque quam alias! Quod eligendi
+            dignissimos dolorum eos! Ducimus cumque, ad ea asperiores blanditiis incidunt atque quibusdam, nemo odit
+            dignissimos molestias quaerat enim cum! Exercitationem, neque? Dolorem, veniam. Nesciunt distinctio,
+            assumenda doloribus ratione aspernatur deleniti blanditiis magni? Aperiam modi adipisci fugiat officiis iste
+            maxime numquam. Voluptatum quia dolores cum sapiente impedit, vero provident aliquam libero non itaque
+            numquam nobis iusto tempore perferendis minus esse consequuntur officia nemo vitae quos, et aperiam velit.
+            Praesentium distinctio voluptatum saepe, ex mollitia nihil iste consectetur autem eligendi pariatur quod.
+            Alias commodi recusandae quae nihil sapiente quibusdam accusantium quia sit sint maiores, ea libero autem
+            nobis culpa modi a saepe exercitationem reprehenderit nesciunt? Ut quidem laudantium, tempore enim quas quod
+            eius facilis maxime inventore minima est iure consequuntur tenetur. Possimus nihil dolores error laudantium
+            ullam, quam officia facere quibusdam porro quo similique nesciunt maiores maxime? Amet omnis pariatur quae
+            porro neque, perferendis deleniti repudiandae facilis modi accusamus nostrum debitis ut vitae nemo quam
+            minima quidem, ipsum reprehenderit ullam quaerat eum. Laudantium eaque laborum itaque laboriosam excepturi
+            earum suscipit eos, necessitatibus dignissimos, nesciunt libero! Reprehenderit nihil ex impedit maxime
+            fugit. Id delectus quod fugiat adipisci vero, praesentium dolorem beatae harum iusto cumque ratione magni
+            nesciunt ullam perspiciatis porro. Explicabo ipsum, officiis veniam ullam ipsa iusto quia reprehenderit
+            repudiandae cupiditate corrupti eum quo voluptatum assumenda, dignissimos repellendus incidunt repellat
+            quis, aliquid obcaecati? Maxime sequi labore dicta inventore assumenda minus veritatis incidunt sed corrupti
+            et voluptate, reiciendis ipsam esse fugiat ea iusto eveniet autem facilis deleniti? Ratione quis qui fuga,
+            ut laudantium perferendis incidunt illum pariatur in placeat laborum a numquam minima fugiat voluptate
+            assumenda, dolore, modi sed eos veritatis? Id, ut illum fuga voluptate animi ipsum sapiente repudiandae
+            excepturi optio, commodi hic harum tempore beatae repellat! Ullam officia commodi quas possimus enim.
+            Molestias expedita odit rem officiis consequatur, excepturi repellendus voluptas a amet, similique eius
+            delectus recusandae magnam nesciunt sapiente sequi quos saepe, aliquam voluptate non. Exercitationem,
+            dignissimos necessitatibus. Alias eveniet laudantium ea ipsum dolor vitae repudiandae, sequi asperiores
+            dignissimos, voluptatum sit, quas non ullam. Odit, error hic necessitatibus, optio sit recusandae deserunt
+            accusamus quam nobis fugit voluptatum non quidem eius ipsa eligendi laborum? Laudantium, sit. A placeat
+            consequatur, mollitia eum esse dolor nobis, sint quisquam corporis atque illum debitis ex amet recusandae
+            repellendus dolore totam vero eius quidem nam, optio consequuntur. Officiis, expedita eos? Vero dignissimos
+            amet explicabo sunt inventore maxime. Distinctio, est qui. Sit molestiae facere atque quibusdam totam et,
+            ipsa provident possimus odit doloremque recusandae quia laborum sequi! Quia hic, qui odio corrupti quisquam
+            commodi nostrum ratione quasi tenetur iste id rem veritatis ipsum sint possimus voluptatum reprehenderit
+            ducimus molestias reiciendis dolorem quos quaerat? Adipisci sapiente deserunt aspernatur voluptatum
+            voluptatem debitis consequuntur ab, qui rem magni quibusdam! Ducimus reiciendis nesciunt mollitia quaerat
+            tempore nulla? Sequi consectetur vel sit deserunt officiis eos distinctio suscipit sint. Perspiciatis ex
+            harum cum ad obcaecati animi totam corporis accusantium, hic, aliquid magni! Repellendus placeat officia
+            sapiente deleniti magnam rem cum inventore quas amet hic? Beatae nesciunt, quam ea exercitationem accusamus
+            corrupti! Quibusdam adipisci nam consectetur necessitatibus tempore aut ad eum quasi, ipsa neque beatae quo
+            eos itaque omnis possimus maiores fuga! Facilis sunt, accusamus ratione fugiat consectetur illo quidem earum
+            quod magni et voluptas. Voluptate, neque quas?</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
+    </script>
+    <script>
+        $(document).ready(function () {
+            // executes when HTML-Document is loaded and DOM is ready
+
+            // breakpoint and up  
+            $(window).resize(function () {
+                if ($(window).width() >= 980) {
+
+                    // when you hover a toggle show its dropdown menu
+                    $(".navbar .dropdown-toggle").hover(function () {
+                        $(this).parent().toggleClass("show");
+                        $(this).parent().find(".dropdown-menu").toggleClass("show");
+                    });
+
+                    // hide the menu when the mouse leaves the dropdown
+                    $(".navbar .dropdown-menu").mouseleave(function () {
+                        $(this).removeClass("show");
+                    });
+
+                    // do something here
+                }
+            });
+
+
+
+            // document ready  
+        });
+    </script>
+</body>
+
+</html>
